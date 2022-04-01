@@ -3,6 +3,7 @@ const fastify = require('fastify')({ logger: true })
 
 const userName = process.env.USERNAME 
 const password = process.env.PASSWORD 
+const listenPort = process.env.LISTEN_PORT || 3000
 
 fastify.post('/', async (req, resp) => {
   console.log(req.body);
@@ -13,7 +14,7 @@ fastify.post('/', async (req, resp) => {
 
 const start = async () => {
   try {
-    await fastify.listen(3000)
+    await fastify.listen(listenPort)
   } catch (err) {
     fastify.log.error(err)
     process.exit(1)
