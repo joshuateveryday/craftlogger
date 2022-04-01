@@ -14,7 +14,7 @@ fastify.post('/', async (req, resp) => {
 
 const start = async () => {
   try {
-    await fastify.listen(listenPort)
+    await fastify.listen(listenPort, "0.0.0.0")
   } catch (err) {
     fastify.log.error(err)
     process.exit(1)
