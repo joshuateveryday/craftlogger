@@ -7,9 +7,10 @@ const listenPort = process.env.LISTEN_PORT || 3000
 
 fastify.post('/', async (req, resp) => {
   const postUrl = `https://${userName}:${password}@hoc.es.us-west-1.aws.found.io:9243/craft-stats/_doc`;
-  const res = await axios.post(postUrl, req.body)
-  console.log(res.data)
-  return res.data 
+  axios.post(postUrl, req.body)
+  // console.log(res.data)
+  // return res.data 
+  return { status: "OK" }
 })
 
 const start = async () => {
